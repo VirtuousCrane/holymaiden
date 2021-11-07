@@ -5,7 +5,7 @@ setup(
     packages=['shrinemaiden'],
     version='0.1.0',
     description='An auxiliary library for deep learning with Audio data',
-    author='virtuouscrane',
+    author='VirtuousCrane',
     license='MIT',
     install_requires=['librosa'],
     setup_requires=['pytest-runner'],

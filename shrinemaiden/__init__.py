@@ -3,4 +3,4 @@ import shrinemaiden.transcript
 import shrinemaiden.transcript_class
 
 # Version of the package
-__version__ = "0.1.1"
+__version__ = "0.1.7"

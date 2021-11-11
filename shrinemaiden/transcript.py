@@ -21,7 +21,7 @@ def create_transcript (
     output : str
         The path to the output transcript file
     """
-    output_file = open(output_file, 'w');
+    output_file = open(output, 'w');
 
     # Iterates through each group
     for group in os.listdir(path):
@@ -95,7 +95,7 @@ def create_train_test_from_transcript(
         )
 
     transcript = open(transcript_path, "r")
-    transcript_lines = [line for lines in transcript.readlines()]
+    transcript_lines = [line for line in transcript.readlines()]
     transcript.close()
 
     transcript_amount = len(transcript_lines)
@@ -108,15 +108,15 @@ def create_train_test_from_transcript(
 
     train = open(output_train, "w")
     for line in train_lines:
-        train.write(train_lines)
+        train.write(line)
     train.close()
 
     test = open(output_test, "w")
     for line in test_lines:
-        test.write(test_lines)
+        test.write(line)
     test.close()
 
-def read_transcript(path : str) -> AudioTranscript:
+def read_transcript(transcript_path : str) -> AudioTranscript:
     """
     Reads the transcript and returns relevant information
 
@@ -132,23 +132,23 @@ def read_transcript(path : str) -> AudioTranscript:
         label of the transcript.
     """
 
-    if not os.path.exists (path):
+    if not os.path.exists (transcript_path):
         raise FileNotFoundError (
             errno.ENOENT,
             os.strerror (errno.ENOENT),
-            path
+            transcript_path
         )
 
     path     = []
     label    = []
     duration = []
 
-    transcript = open(path)
-    for line in transcript.read_lines():
+    transcript = open(transcript_path, "r")
+    for line in transcript.readlines():
         data = json.loads(line)
         path.append (data['path'])
         duration.append (data['duration'])
-        label.append (data['label'])
+        label.append (data['text'])
 
     output_transcript = AudioTranscript(path, duration, label)
 

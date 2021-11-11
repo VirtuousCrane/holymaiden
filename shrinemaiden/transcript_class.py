@@ -32,7 +32,7 @@ class AudioTranscript:
         self._duration = duration
         self._label    = label
 
-    def get_path() -> List[str]:
+    def get_path(self) -> List[str]:
         """
         Returns all the path of the transcript
 
@@ -43,7 +43,7 @@ class AudioTranscript:
         """
         return self._path
 
-    def get_duration() -> List[str]:
+    def get_duration(self) -> List[str]:
         """
         Returns all the duration of the transcript
 
@@ -54,7 +54,7 @@ class AudioTranscript:
         """
         return self._duration
 
-    def get_label() -> List[str]:
+    def get_label(self) -> List[str]:
         """
         Returns all the label of the transcript
 
@@ -88,10 +88,10 @@ class Transcript:
             )
 
         path_file = open (path)
-        _transcript = [line for lines in path_file.readlines()]
+        _transcript = [line for line in path_file.readlines()]
         path_file.close()
 
-    def to_audio_transcript() -> AudioTranscript:
+    def to_audio_transcript(self) -> AudioTranscript:
         """
         Converts this object into an AudioTranscript object
         """
@@ -99,7 +99,7 @@ class Transcript:
         label    : List[str] = []
         duration : List[str] = []
 
-        for line in _transcript:
+        for line in self._transcript:
             data = json.loads(line)
             path.append (data['path'])
             label.append (data['label'])

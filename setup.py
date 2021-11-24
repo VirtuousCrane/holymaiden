@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name='shrinemaiden',
     packages=['shrinemaiden'],
-    version='0.1.7',
+    version='0.2.2',
     description='An auxiliary library for deep learning with Audio data',
     long_description=README,
     long_description_content_type='text/markdown',
@@ -22,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    install_requires=['librosa'],
+    install_requires=['librosa', 'tensorflow', 'numpy', 'keras', 'scikit-learn'],
     setup_requires=['pytest-runner'],
     tests_require=['pytest==4.4.1'],
     test_suite='tests',

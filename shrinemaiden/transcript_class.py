@@ -88,7 +88,7 @@ class Transcript:
             )
 
         path_file = open (path)
-        _transcript = [line for line in path_file.readlines()]
+        self._transcript = [line for line in path_file.readlines()]
         path_file.close()
 
     def to_audio_transcript(self) -> AudioTranscript:

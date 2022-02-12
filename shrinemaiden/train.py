@@ -18,7 +18,7 @@ class StandardTrainer:
         """
         Trains the model and logs the loss, accuracy, MAE, MSE, and RMSE
 
-        PARAMETERS
+        Parameters
         ==========
         model: Sequential
           A Keras Sequential Model
@@ -47,7 +47,7 @@ class StandardTrainer:
         The default checkpoint monitors the loss, saves the weights only,
         saves the best result only, and uses the min mode.
 
-        PARAMETERS
+        Parameters
         ==========
         checkpoint: tf.keras.callbacks.ModelCheckpoint
           The checkpoint object
@@ -70,7 +70,7 @@ class StandardTrainer:
         """
         Sets the name of the output file
 
-        PARAMETERS
+        Parameters
         ==========
         filename: str
           The name of the file
@@ -81,7 +81,7 @@ class StandardTrainer:
         """
         Adds a callback to the model training process
 
-        PARAMETERS
+        Parameters
         ==========
         callback: A Keras Callback
           The callback of the model
@@ -98,7 +98,7 @@ class StandardTrainer:
         """
         Trains the model
 
-        PARAMETERS
+        Parameters
         ==========
         batch_size: int
           DEFAULT = 1

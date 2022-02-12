@@ -14,7 +14,7 @@ def create_transcript (
     """
     Creates a transcript file for LibriSpeech dataset
 
-    PARAMETERS
+    Parameters
     ----------
     path : str
         The path to the folder containing LibreSpeech files
@@ -74,7 +74,7 @@ def create_train_test_from_transcript(
     """
     Creates train and test transcripts from the transcript
 
-    PARAMETERS
+    Parameters
     ----------
     transcript_path : str
         The path to the transcript file
@@ -120,7 +120,7 @@ def read_transcript(transcript_path : str) -> AudioTranscript:
     """
     Reads the transcript and returns relevant information
 
-    PARAMETERS
+    Parameters
     ----------
     path : str
         The path to the transcript

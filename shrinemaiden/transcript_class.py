@@ -18,7 +18,7 @@ class AudioTranscript:
         """
         The default constructor
 
-        PARAMETERS
+        Parameters
         ----------
         path : List[str]
             The list containing all the path of the transcript
@@ -75,7 +75,7 @@ class Transcript:
         """
         The default constructor
 
-        PARAMETERS
+        Parameters
         ----------
         path : str
             The path of the transcript

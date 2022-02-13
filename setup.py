@@ -10,8 +10,8 @@ README = (HERE / "README.md").read_text()
 setup(
     name='shrinemaiden',
     packages=['shrinemaiden'],
-    version='0.3.0',
-    description='An auxiliary library for deep learning with Audio data',
+    version='0.3.1',
+    description='An auxiliary library to help process data for ML/DL purposes',
     long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/VirtuousCrane/shrinemaiden.git',

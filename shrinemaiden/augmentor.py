@@ -179,24 +179,24 @@ class ImageAugmentor:
 		"""
 		return self.base_path
 
-	def get_image_labels(self) -> tuple[str]:
+	def get_image_labels(self) -> Tuple[str]:
 		"""
 		Returns a tuple containing the labels of the images
 
 		Returns
 		-------
-		tuple[str]
+		Tuple[str]
 			A tuple containing the labels of the images
 		"""
 		return ([category.label for category in self.image_categories])
 
-	def get_category_objects(self) -> tuple[ImageCategory]:
+	def get_category_objects(self) -> Tuple[ImageCategory]:
 		"""
 		Returns ImageCategory objects
 
 		Returns
 		-------
-		tuple[str]
+		Tuple[str]
 			A tuple containing the ImageCategory objects
 		"""
 		return ([category for category in self.image_categories])

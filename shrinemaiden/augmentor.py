@@ -14,10 +14,25 @@ class ImageCategory:
 
 class ImageAugmentor:
 	"""Augments the images"""
-	def __init__(self, path = None):
+	def __init__(self, path: str = None, new_size: float = None, size_is_width: bool = False):
+		"""
+		Parameters
+		----------
+		path : str
+			The path to the root image directory\n
+			DEFAULT: None
+		new_size : float
+			The new size of the image. If not specified, the images won't be resized\n
+			DEFAULT: None
+		size_is_width : bool
+			Determines whether the specified new_size is the width of the new image
+			DEFAULT: False
+		"""
 		self.base_path = path
 		self.image_categories = []
 		self.total_image_number = 0
+		self.new_size = new_size
+		self.size_is_width = size_is_width
 
 		if path is not None:
 			assert os.path.exists(self.base_path), "Path doesn't exist"
@@ -55,7 +70,7 @@ class ImageAugmentor:
 			self.image_categories.append(category)
 			self.total_image_number += len(category.image_paths)
 
-	def augment(self, output_path: str, rotate_degree: float = 45.0, flip: str = "none", color_adjustment_prob: float = 0.0, copy_original = True):
+	def augment(self, output_path: str, rotate_degree: float = 45.0, flip: str = "none", color_adjustment_prob: float = 0.0, copy_original: bool = True):
 		"""
 		Starts the image augmentation process
 		output_path : str
@@ -100,6 +115,18 @@ class ImageAugmentor:
 				image_file_name = get_file_name_from_path(image_path)
 				image = Image.open(image_path)
 
+				# Determines whether to resize the Image
+				if self.new_size is not None:
+					new_image = resize_image_keep_ratio(
+						image,
+						size=self.new_size,
+						based_on_width=self.size_is_width
+					)
+					image.close()
+					image = new_image
+
+				# Determines whether or not to copy the original image to the location directory
+				# If a new size is specified, the resized image will be saved instead
 				if copy_original:
 					new_image_path = os.path.join(output_category_path, image_file_name)
 					image.save(new_image_path)

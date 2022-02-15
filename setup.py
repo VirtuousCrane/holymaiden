@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name='shrinemaiden',
     packages=['shrinemaiden'],
-    version='0.3.1',
+    version='0.3.2',
     description='An auxiliary library to help process data for ML/DL purposes',
     long_description=README,
     long_description_content_type='text/markdown',

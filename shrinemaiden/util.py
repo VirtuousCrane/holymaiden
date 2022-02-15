@@ -165,3 +165,43 @@ def trim_data(data: np.ndarray, batch_size: int):
 	if (extra == 0):
 		return data
 	return data[:-extra]
+
+def resize_image_keep_ratio(image: Image, size: int, path: str = None, based_on_width: bool = False) -> Image:
+	"""
+	Resizes the input image and keep the aspect ratio
+
+	Parameters
+	----------
+	image : Image
+		The image you want to be resized
+	size : int
+		If based_on_width is False, size is the height of the new image. If it is True, size is the width of the new image
+	path : str
+		The path to save the new image
+	based_on_width : bool
+		Determines whether size is the height or width of the new image
+
+	Returns
+	-------
+	Image
+		The output image
+	"""
+	# Finding the Original Image's Ratio
+	width, height = image.size
+	ratio = width/height
+
+	# Calculating the dimensions of the new Image
+	new_height, new_width = (0, 0)
+	if not based_on_width:
+		new_height = size
+		new_width  = int(size * ratio)
+	else:
+		new_width  = size
+		new_height = int(size / ratio)
+
+	output_image = image.resize((new_width, new_height))
+
+	# Saves the new Image
+	if path is not None:
+		output_image.save(path)
+	return output_image
